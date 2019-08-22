@@ -48,12 +48,14 @@ def build(pattern, words, seen, list):
 # Main Function
 
 def find(word, words, seen, target, path):
+
     list = []
     for i in range(len(word)):
         list += build(word[:i] + "." + word[i + 1:], words, seen, list)
     if len(list) == 0:
         return False
-    list = sorted([(same(w, target), w) for w in list])
+
+    list = sorted([(same(w, target), w) for w in list])  # Returns the shortest path
     for (match, item) in list:
         if match >= len(target) - 1:
             if match == len(target) - 1:
@@ -116,6 +118,7 @@ while True:
     break
 
 count = 0
+
 path = [start]
 seen = {start: True}
 if find(start, words, seen, target, path):
