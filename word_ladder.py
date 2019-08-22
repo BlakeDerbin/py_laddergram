@@ -55,7 +55,7 @@ def find(word, words, seen, target, path):
     if len(list) == 0:
         return False
 
-    list = sorted([(same(w, target), w) for w in list])  # Returns the shortest path
+    list = sorted([(same(w, target), w) for w in list], reverse=True)  # Returns the shortest path
     for (match, item) in list:
         if match >= len(target) - 1:
             if match == len(target) - 1:
