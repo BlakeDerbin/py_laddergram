@@ -19,6 +19,19 @@ def verify_dictionary_input():
             raise
 
 
+# Allows the user to provide a list of words to exclude from the ladder gram, if nothing is entered the program will
+# proceed with the ladder gram, if an input is detected the program will exclude the words if they're in the dictionary.
+def excluded_input(exclude_words):
+    while True:
+        if exclude_words == "":
+            print("No excluded words provided, please wait...\n")
+            break
+        else:
+            excluded_list = exclude_words.split(',')
+            print("Excluded words accepted, please wait...\n")
+            return excluded_list
+
+
 # Returns the number of letters and indexes that are the same
 def same(item, target):
     return len([c for (c, t) in zip(item, target) if c == t])
@@ -84,11 +97,20 @@ while True:
         print("Please enter a valid target word!")
 
 while True:
+    user_list = str(input(
+        "Enter a list of words that you do not wish to be included in the word ladder. "
+        "If no words are to be excluded press ENTER \n"
+        + "Example of how to input excluded words: hold, mold, weld, sell\n" + "Excluded words: ")).replace(" ", "")
+    excluded_words = excluded_input(user_list)
     words = []
     for line in lines:
         word = line.rstrip()
-        if len(word) == len(start):
-            words.append(word)
+        if excluded_words == "":
+          if len(word) == len(start) and word:
+              words.append(word)
+        else:
+          if len(word) == len(start) and word not in excluded_words:
+              words.append(word)
     break
 
 count = 0
