@@ -83,6 +83,7 @@ while True:
     except ValueError:
         print("Please enter a valid start word!")
 
+
 # Verifies the target word by using regular expressions to iterate over the input step by step to ensure that the input
 # only matches the letters from a - z in lowercase, will convert users input to lowercase if uppercase is used.
 while True:
@@ -96,12 +97,13 @@ while True:
     except ValueError:
         print("Please enter a valid target word!")
 
+
 while True:
     user_list = str(input(
         "Enter a list of words that you do not wish to be included in the word ladder. "
         "If no words are to be excluded press ENTER \n"
         + "Example of how to input excluded words: hold, mold, weld, sell\n" + "Excluded words: ")).replace(" ", "")
-    excluded_words = excluded_input(user_list)
+    excluded_words = str(excluded_input(user_list))
     words = []
     for line in lines:
         word = line.rstrip()
