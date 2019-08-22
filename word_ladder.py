@@ -19,15 +19,20 @@ def verify_dictionary_input():
             raise
 
 
+# Returns the number of letters and indexes that are the same
 def same(item, target):
     return len([c for (c, t) in zip(item, target) if c == t])
 
 
+# Returns the result of each word iterated in the words list and searches through each word in that list to ensure that
+# it doesn't exist in either the seen list or path list.
 def build(pattern, words, seen, list):
     return [word for word in words
             if re.search(pattern, word) and word not in seen.keys() and
             word not in list]
 
+
+# Main Function
 
 def find(word, words, seen, target, path):
     list = []
@@ -49,15 +54,15 @@ def find(word, words, seen, target, path):
         path.pop()
 
 
-# Uses the function verify_dictionary_input to ensure the file input for the program is valid
+# Uses function verify_dictionary_input to ensure file input for the program is valid, then reads the dictionary lines
 lines = verify_dictionary_input().readlines()
 
 # Verifies the start word by using regular expressions to iterate over the input step by step to ensure that the input
-# only matches the letters from a - z in lowercase and uppercase, will continue until input is valid
+# only matches the letters from a - z in lowercase, will convert users input to lowercase if uppercase is used.
 while True:
     try:
-        start = input("Enter start word: ")
-        validate_word = re.findall(r'^[a-zA-Z]+$', start)
+        start = input("Enter start word: ").lower()
+        validate_word = re.findall(r'^[a-z]+$', start)
         if not validate_word:
             print("Please ensure the start word only contains letters!")
         else:
@@ -66,12 +71,12 @@ while True:
         print("Please enter a valid start word!")
 
 # Verifies the target word by using regular expressions to iterate over the input step by step to ensure that the input
-# only matches the letters from a - z in lowercase and uppercase, will continue until input is valid
+# only matches the letters from a - z in lowercase, will convert users input to lowercase if uppercase is used.
 while True:
     try:
-        target = input("Enter target word: ")
-        validate_word = re.findall(r'^[a-zA-Z]+$', target)
-        if not validate_word:
+        target = input("Enter target word: ").lower()
+        validate_word_lower = re.findall(r'^[a-z]+$', target)
+        if not validate_word_lower:
             print("Please ensure the target word only contains letters!")
         else:
             break
