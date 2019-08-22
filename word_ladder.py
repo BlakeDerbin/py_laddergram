@@ -8,12 +8,12 @@ import re
 def verify_dictionary_input():
     while True:
         try:
-            fname = input("Enter dictionary name: ")
+            fname = input("Enter your dictionary file name: ")
             open_dict = open(fname, "r")
             return open_dict
         except IOError as e:
             error_num, str_error = e.args
-            print("Input Error ({0}): {1}".format(error_num, str_error))
+            print("Input Error ({}): {}".format(error_num, str_error))
         except:
             print("Unexpected error, please try again.")
             raise
@@ -50,12 +50,14 @@ def build(pattern, words, seen, list):
 def find(word, words, seen, target, path):
 
     list = []
+
     for i in range(len(word)):
         list += build(word[:i] + "." + word[i + 1:], words, seen, list)
     if len(list) == 0:
         return False
 
-    list = sorted([(same(w, target), w) for w in list], reverse=True)  # Returns the shortest path
+    # List is sorted in descending order rather than ascending, offering shortest path
+    list = sorted([(same(w, target), w) for w in list], reverse=True)
     for (match, item) in list:
         if match >= len(target) - 1:
             if match == len(target) - 1:
@@ -76,10 +78,10 @@ lines = verify_dictionary_input().readlines()
 # only matches the letters from a - z in lowercase, will convert users input to lowercase if uppercase is used.
 while True:
     try:
-        start = input("Enter start word: ").lower()
+        start = input("Enter your start word: ").lower()
         validate_word = re.findall(r'^[a-z]+$', start)
         if not validate_word:
-            print("Please ensure the start word only contains letters!")
+            print("Please ensure that your start word only contains letters!")
         else:
             break
     except ValueError:
@@ -90,10 +92,10 @@ while True:
 # only matches the letters from a - z in lowercase, will convert users input to lowercase if uppercase is used.
 while True:
     try:
-        target = input("Enter target word: ").lower()
+        target = input("Enter your target word: ").lower()
         validate_word_lower = re.findall(r'^[a-z]+$', target)
         if not validate_word_lower:
-            print("Please ensure the target word only contains letters!")
+            print("Please ensure that your target word only contains letters!")
         else:
             break
     except ValueError:
@@ -101,28 +103,35 @@ while True:
 
 
 while True:
+    # User supplies a list of excluded words, spaces between commas are replaced with no space & converted to lowercase
     user_list = str(input(
-        "Enter a list of words that you do not wish to be included in the word ladder. "
-        "If no words are to be excluded press ENTER \n"
-        + "Example of how to input excluded words: hold, mold, weld, sell\n" + "Excluded words: ")).replace(" ", "")
+        "\nEnter a list of words that you do not wish to be included in the laddergram\n"
+        "If do not wish to exclude any words press ENTER \n" +
+        "An example of how to input excluded words: hold, mold, weld, sell\n\n" +
+        "Excluded words: ")).replace(" ", "").lower()
     excluded_words = str(excluded_input(user_list))
     words = []
+
     for line in lines:
         word = line.rstrip()
+        # If the user provides no excluded words i.e. presses enter the program doesn't include them
         if excluded_words == "":
           if len(word) == len(start) and word:
               words.append(word)
+        # If the user provides the excluded words the program will exclude them from the search
         else:
           if len(word) == len(start) and word not in excluded_words:
               words.append(word)
     break
 
 count = 0
-
 path = [start]
 seen = {start: True}
+
 if find(start, words, seen, target, path):
     path.append(target)
-    print(len(path) - 1, path)
+    # Print formatting of final output, mainly formats the list into a more readable format
+    print("{} steps taken to transform {} to {}.\nWords used in laddergram: {}"
+          .format(len(path) - 1, str(start), str(target), str(path)[1:-1].replace("'", "")))
 else:
-    print("No path found")
+    print("No viable paths found to convert {} to {}".format(start,target))
