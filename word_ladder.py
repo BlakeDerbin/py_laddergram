@@ -55,8 +55,9 @@ def target_input():
             print("Please ensure your target word is the same length as your start word")
 
 
-# Allows the user to provide a list of words to exclude from the ladder gram, if nothing is entered the program will
-# proceed with the ladder gram, if an input is detected the program will exclude the words if they're in the dictionary.
+# Takes user input of excluded words for the ladder gram, if nothing is entered the program will continue
+# If an input is entered it is checked that it is a valid input only containing letters.
+# If the input isn't valid an error message will occur
 def excluded_input():
     while True:
         # User inputs list of excluded words, spaces between commas are replaced with no space & converted to lowercase
@@ -71,8 +72,14 @@ def excluded_input():
             break
         else:
             excluded_list = exclude_words.split(',')
-            print("{} has been excluded from the laddergram search\n".format(str(exclude_words).replace("'", "",)))
-            return excluded_list
+            # To check if the list only contains letters, converts to string and removes all list characters.
+            check_list = str(excluded_list)[1:-1].replace("'", "",).replace(",", "").replace(" ", "")
+            print(check_list)
+            if not verify_input(check_list):
+                print("Please ensure your excluded words only contain letters and are in the format stated.")
+            else:
+                print("{} has been excluded from the laddergram search\n".format(str(excluded_list)[1:-1].replace("'", "",)))
+                return excluded_list
 
 
 # Processes the users input for the included word in the search
