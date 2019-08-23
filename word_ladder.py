@@ -67,11 +67,11 @@ def excluded_input():
             "Excluded words: ")).replace(" ", "").lower()
 
         if exclude_words == "":
-            print("No excluded words provided, please wait...\n")
+            print("No words provided to exclude from the laddergram search\n")
             break
         else:
             excluded_list = exclude_words.split(',')
-            print("Excluded words accepted, please wait...\n")
+            print("{} has been excluded from the laddergram search\n".format(str(exclude_words).replace("'", "",)))
             return excluded_list
 
 
@@ -82,16 +82,18 @@ def excluded_input():
 # If the length of the input doesn't match the start and target word, the function will return an error message
 def included_input():
     while True:
-            include_word = str(input("Enter word to include in laddergram: ")).replace(" ", "").lower()
+            include_word = str(input("Enter a word to include in the laddergram search from {} to {}\n".format(start, target) +
+                                     "If do not wish to include a word press ENTER\n\n" +
+                                     "Word to include: ")).replace(" ", "").lower()
             if include_word == "":
-                print("No word provided to include in laddergram, please wait...\n")
+                print("No word provided to include in laddergram search, please wait...\n")
                 return include_word
             elif len(include_word) == len(start) and len(include_word) == len(target):
                 if not verify_input(include_word):
                     print("Please enter a valid word only containing letters!!!")
                     included_input()
                 else:
-                    print("{} has been included in the laddergram, please wait...\n".format(include_word))
+                    print("{} has been included in the laddergram search, please wait...\n".format(include_word))
                     return include_word
                     break
             elif not verify_input(include_word):
@@ -184,6 +186,7 @@ if include_word != "":
         # Print formatting of final output, mainly formats the list into a more readable format
         print("{} steps taken to transform {} to {} while including {} in the search.\nWords used in laddergram: {}"
               .format(len(path) - 1, str(start), str(target), str(include_word), str(path)[1:-1].replace("'", "")))
+        break
     else:
         print("No viable paths found to convert {} to {} with {} included in the search.".format(start, target, include_word))
 
@@ -195,5 +198,6 @@ if include_word == "":
         # Print formatting of final output, mainly formats the list into a more readable format
         print("{} steps taken to transform {} to {}.\nWords used in laddergram: {}"
               .format(len(path) - 1, str(start), str(target), str(path)[1:-1].replace("'", "")))
+        break
     else:
         print("No viable paths found to convert {} to {}".format(start, target))
