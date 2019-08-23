@@ -196,6 +196,8 @@ if include_word != "":
         break
     else:
         print("No viable paths found to convert {} to {} with {} included in the search.".format(start, target, include_word))
+else:
+    print("Error occurred!")
 
 # Finds the start word to the target word
 if include_word == "":
@@ -208,3 +210,5 @@ if include_word == "":
         break
     else:
         print("No viable paths found to convert {} to {}".format(start, target))
+else:
+    print("Error occurred!")
