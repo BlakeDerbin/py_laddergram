@@ -19,15 +19,53 @@ def verify_dictionary_input():
             raise
 
 
-# Verifies that an input is lowercase and between only contains letters
+# Verifies input by using regular expressions to iterate over the input step by step to ensure
+# that the input only matches the letters from a - z in lowercase,
 def verify_input(word_input):
     return re.findall(r'^[a-z]+$', str(word_input))
 
 
+# Checks if the start word input is not nothing and verifies the input using the verify_input function.
+def start_input():
+    while True:
+            start = str(input("Enter your start word: ")).replace(" ", "").lower()
+            if start == "":
+                print("Please enter a start word!")
+            elif not verify_input(start):
+                print("Please enter a valid start word only containing letters!")
+            else:
+                return start
+
+
+# Checks if the target word input is empty, prints error message if it is
+# Checks if the length of the target word matches length of start word, if true then checks if it contains only letters
+# If it only contains letters the program returns the target word
+# If the length of the target word doesn't match the length of the start word an error message is printed
+def target_input():
+    while True:
+        target = str(input("Enter your target word: ")).replace(" ", "").lower()
+        if target == "":
+            print("Please enter a target word!")
+        elif len(target) == len(start) and target:
+            if not verify_input(target):
+                print("Please enter a valid target word only containing letters!")
+            else:
+                return target
+        elif len(target) != len(start):
+            print("Please ensure your target word is the same length as your start word")
+
+
 # Allows the user to provide a list of words to exclude from the ladder gram, if nothing is entered the program will
 # proceed with the ladder gram, if an input is detected the program will exclude the words if they're in the dictionary.
-def excluded_input(exclude_words):
+def excluded_input():
     while True:
+        # User inputs list of excluded words, spaces between commas are replaced with no space & converted to lowercase
+        exclude_words = str(input(
+            "\nEnter a list of words that you do not wish to be included in the laddergram\n" +
+            "If do not wish to exclude any words press ENTER \n" +
+            "An example of how to input excluded words: hold, mold, weld, sell\n\n" +
+            "Excluded words: ")).replace(" ", "").lower()
+
         if exclude_words == "":
             print("No excluded words provided, please wait...\n")
             break
@@ -61,6 +99,7 @@ def included_input():
             elif len(include_word) != len(start) or len(target):
                 print("Please ensure your word to include is the same length as your start and target word!")
 
+
 # Returns the number of letters and indexes that are the same
 def same(item, target):
     return len([c for (c, t) in zip(item, target) if c == t])
@@ -75,7 +114,6 @@ def build(pattern, words, seen, list):
 
 
 # Main Function
-
 def find(word, words, seen, target, path):
     list = []
 
@@ -87,7 +125,6 @@ def find(word, words, seen, target, path):
     # List is sorted in descending order rather than ascending, offering shortest path
     list = sorted([(same(w, target), w) for w in list], reverse=True)
 
-    # Searches the list for
     for (match, item) in list:
         # For loop removes uncommon letters from list, improves search efficiency by excluding words containing x,y,z
         for letters in ['x', 'y', 'z']:
@@ -109,42 +146,11 @@ def find(word, words, seen, target, path):
 # Uses function verify_dictionary_input to ensure file input for the program is valid, then reads the dictionary lines
 lines = verify_dictionary_input().readlines()
 
-# Verifies the start word by using regular expressions to iterate over the input step by step to ensure that the input
-# only matches the letters from a - z in lowercase, will convert users input to lowercase if uppercase is used.
 while True:
-    try:
-        start = input("Enter your start word: ").lower()
-        validate_word = verify_input(start)
-        if not validate_word:
-            print("Please ensure that your start word only contains letters!")
-        else:
-            break
-    except ValueError:
-        print("Please enter a valid start word!")
-
-# Verifies the target word by using regular expressions to iterate over the input step by step to ensure that the input
-# only matches the letters from a - z in lowercase, will convert users input to lowercase if uppercase is used.
-while True:
-    try:
-        target = input("Enter your target word: ").lower()
-        validate_word = verify_input(target)
-        if not validate_word:
-            print("Please ensure that your target word only contains letters!")
-        else:
-            break
-    except ValueError:
-        print("Please enter a valid target word!")
-
-while True:
-    # User supplies a list of excluded words, spaces between commas are replaced with no space & converted to lowercase
-    user_list = str(input(
-        "\nEnter a list of words that you do not wish to be included in the laddergram\n" +
-        "If do not wish to exclude any words press ENTER \n" +
-        "An example of how to input excluded words: hold, mold, weld, sell\n\n" +
-        "Excluded words: ")).replace(" ", "").lower()
-    excluded_words = str(excluded_input(user_list))
-    include_word = included_input()
-
+    start = str(start_input())
+    target = str(target_input())
+    excluded_words = str(excluded_input())
+    include_word = str(included_input())
     words = []
 
     for line in lines:
@@ -178,7 +184,6 @@ if include_word != "":
         # Print formatting of final output, mainly formats the list into a more readable format
         print("{} steps taken to transform {} to {} while including {} in the search.\nWords used in laddergram: {}"
               .format(len(path) - 1, str(start), str(target), str(include_word), str(path)[1:-1].replace("'", "")))
-        break
     else:
         print("No viable paths found to convert {} to {} with {} included in the search.".format(start, target, include_word))
 
@@ -190,6 +195,5 @@ if include_word == "":
         # Print formatting of final output, mainly formats the list into a more readable format
         print("{} steps taken to transform {} to {}.\nWords used in laddergram: {}"
               .format(len(path) - 1, str(start), str(target), str(path)[1:-1].replace("'", "")))
-        break
     else:
         print("No viable paths found to convert {} to {}".format(start, target))
