@@ -48,7 +48,6 @@ def build(pattern, words, seen, list):
 # Main Function
 
 def find(word, words, seen, target, path):
-
     list = []
 
     for i in range(len(word)):
@@ -58,7 +57,14 @@ def find(word, words, seen, target, path):
 
     # List is sorted in descending order rather than ascending, offering shortest path
     list = sorted([(same(w, target), w) for w in list], reverse=True)
+
+    # Searches the list for
     for (match, item) in list:
+        # For loop removes uncommon letters from list, improves search efficiency by excluding words containing x,y,z
+        for letters in ['x', 'y', 'z']:
+            if letters in item:
+                list.remove((match, item))
+
         if match >= len(target) - 1:
             if match == len(target) - 1:
                 path.append(item)
@@ -87,7 +93,6 @@ while True:
     except ValueError:
         print("Please enter a valid start word!")
 
-
 # Verifies the target word by using regular expressions to iterate over the input step by step to ensure that the input
 # only matches the letters from a - z in lowercase, will convert users input to lowercase if uppercase is used.
 while True:
@@ -101,7 +106,6 @@ while True:
     except ValueError:
         print("Please enter a valid target word!")
 
-
 while True:
     # User supplies a list of excluded words, spaces between commas are replaced with no space & converted to lowercase
     user_list = str(input(
@@ -113,15 +117,20 @@ while True:
     words = []
 
     for line in lines:
+        # Removes any trailing characters from the dictionary from the right (removes spaces by default)
         word = line.rstrip()
-        # If the user provides no excluded words i.e. presses enter the program doesn't include them
+
+        # Program continues without excluded words if string is empty i.e. user presses enter key
         if excluded_words == "":
-          if len(word) == len(start) and word:
-              words.append(word)
+            # Checks dictionary word matches the length of the start word. New list is formed with words the same length
+            if len(word) == len(start) and word:
+                words.append(word)
+
         # If the user provides the excluded words the program will exclude them from the search
         else:
-          if len(word) == len(start) and word not in excluded_words:
-              words.append(word)
+            # Same as above but will not include excluded words in the new list built
+            if len(word) == len(start) and word not in excluded_words:
+                words.append(word)
     break
 
 count = 0
@@ -134,4 +143,4 @@ if find(start, words, seen, target, path):
     print("{} steps taken to transform {} to {}.\nWords used in laddergram: {}"
           .format(len(path) - 1, str(start), str(target), str(path)[1:-1].replace("'", "")))
 else:
-    print("No viable paths found to convert {} to {}".format(start,target))
+    print("No viable paths found to convert {} to {}".format(start, target))
