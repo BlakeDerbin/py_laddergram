@@ -63,7 +63,7 @@ def excluded_input():
         # User inputs list of excluded words, spaces between commas are replaced with no space & converted to lowercase
         exclude_words = str(input(
             "\nEnter a list of words that you do not wish to be included in the laddergram\n" +
-            "If do not wish to exclude any words press ENTER \n" +
+            "If you do not wish to exclude any words press ENTER \n" +
             "An example of how to input excluded words: hold, mold, weld, sell\n\n" +
             "Excluded words: ")).replace(" ", "").lower()
 
@@ -75,7 +75,7 @@ def excluded_input():
             # To check if the list only contains letters, converts to string and removes all list characters.
             check_list = str(excluded_list)[1:-1].replace("'", "", ).replace(",", "").replace(" ", "")
             if not verify_input(check_list):
-                print("Please ensure your excluded words only contain letters and are in the format stated.")
+                print("Please ensure your excluded words only contain letters and are in the format stated.\n")
             else:
                 print("{} has been excluded from the laddergram search\n".format(
                     str(excluded_list)[1:-1].replace("'", "", )))
@@ -91,42 +91,52 @@ def included_input():
     while True:
         include_word = str(
             input("Enter a word to include in the laddergram search from {} to {}\n".format(start, target) +
-                  "If do not wish to include a word press ENTER\n\n" +
+                  "If you do not wish to include a word press ENTER\n\n" +
                   "Word to include: ")).replace(" ", "").lower()
         if include_word == "":
             print("No word provided to include in laddergram search, please wait...\n")
             return include_word
         elif len(include_word) == len(start) and len(include_word) == len(target):
             if not verify_input(include_word):
-                print("Please enter a valid word only containing letters!!!")
+                print("Please enter a valid word only containing letters!\n")
                 included_input()
             else:
                 print("{} has been included in the laddergram search, please wait...\n".format(include_word))
                 return include_word
                 break
         elif not verify_input(include_word):
-            print("Please enter a valid word only containing letters!")
+            print("Please enter a valid word only containing letters!\n")
         elif len(include_word) != len(start) or len(target):
-            print("Please ensure your word to include is the same length as your start and target word!")
+            print("Please ensure your word to include is the same length as your start or target word!\n")
 
 
-# Returns the number of letters and indexes that are the same
+# Checks if the word is the same
+# Uses for loop to count the number of times word and target match, if they match then the count is increased.
+# Final return value is the count of how many times item and target matched
 def same(item, target):
     return len([c for (c, t) in zip(item, target) if c == t])
 
 
-# Returns the result of each word iterated in the words list and searches through each word in that list to ensure that
-# it doesn't exist in either the seen list or path list.
+# Returns the result of each word iterated in the words list and seen list
+# It will use a regular expression search with a pattern to verify that word doesn't exist in either seen list or list
+# word variable is returned
 def build(pattern, words, seen, list):
     return [word for word in words
             if re.search(pattern, word) and word not in seen.keys() and
             word not in list]
 
 
-# Main Function
+# Main function:
+# Creates a list using the build function, will include all variations that match the length of the start word
+# List is the sorted based on the number of times start and target words matched in the dictionary
+# For loop detects if the start word matches the length of the target word, if it matches the target word is appended to path
+# Nested for loop detects any words with the letters x, y, z and removes them from the list
+# 2nd for loop runs find function again and true, will then append each match, and item to the path list
+
 def find(word, words, seen, target, path):
     list = []
 
+    # Iterates through all words in the dictionary that match the length of the start word and stores as list variable
     for i in range(len(word)):
         list += build(word[:i] + "." + word[i + 1:], words, seen, list)
     if len(list) == 0:
@@ -146,6 +156,7 @@ def find(word, words, seen, target, path):
                 path.append(item)
             return True
         seen[item] = True
+
     for (match, item) in list:
         path.append(item)
         if find(item, words, seen, target, path):
@@ -154,6 +165,7 @@ def find(word, words, seen, target, path):
 
 
 # Uses function verify_dictionary_input to ensure file input for the program is valid, then reads the dictionary lines
+# and stores the lines as a list in the variable lines
 lines = verify_dictionary_input().readlines()
 
 while True:
@@ -164,7 +176,7 @@ while True:
     words = []
 
     for line in lines:
-        # Removes any trailing characters from the dictionary from the right (removes spaces by default)
+        # Removes any spaces from the lines variable from the right
         word = line.rstrip()
 
         # Program continues without excluded words if string is empty i.e. user presses enter key
@@ -184,7 +196,7 @@ count = 0
 path = [start]
 seen = {start: True}
 
-# Finds the start word to the word to include, then finds from the included word to target word
+# Uses the start word to find until the include word, then uses the include word to find until the target word to perform the laddergram search
 if include_word != "":
     try:
         if find(start, words, seen, include_word, path):
@@ -200,7 +212,7 @@ if include_word != "":
     except ValueError:
         print("A value error has occurred!")
 
-# Finds the start word to the target word
+# Uses the start word to the target word to perform the laddergram search
 elif include_word == "":
     try:
         if find(start, words, seen, target, path):
