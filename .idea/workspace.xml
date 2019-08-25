@@ -1,21 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f1d9c9a-5b26-4494-a439-489e87ebb48a" name="Default Changelist" comment="" />
+    <list default="true" id="2f1d9c9a-5b26-4494-a439-489e87ebb48a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Assignment_1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Assignment_1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/word_ladder.py" beforeDir="false" afterPath="$PROJECT_DIR$/word_ladder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/word_ladder_unit_tests.py" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/word_ladder_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="24" column="94" lean-forward="true" selection-start-line="24" selection-start-column="94" selection-end-line="24" selection-end-column="94" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/word_ladder.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3825">
+              <caret line="225" column="82" selection-start-line="225" selection-start-column="82" selection-end-line="225" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/word_ladder_unit_tests.py" />
+        <option value="$PROJECT_DIR$/word_ladder_test.py" />
+        <option value="$PROJECT_DIR$/word_ladder.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
+    <option name="height" value="1045" />
+  </component>
   <component name="ProjectId" id="1PRCYxyGn6r4qPj6k8EnkuE9o2M" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+    </panes>
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/word_ladder_test.py" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -29,7 +83,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python tests.Unittests in word_ladder_test.py">
     <configuration name="word_ladder" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Assignment_1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -51,9 +105,69 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests for word_ladder_test.test_word_ladder_functions" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="Assignment_1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;word_ladder_test.test_word_ladder_functions&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for word_ladder_test.test_word_ladder_functions.test_verify_dictionary_input" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="Assignment_1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;word_ladder_test.test_word_ladder_functions.test_verify_dictionary_input&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for word_ladder_unit_tests.test_word_ladder_functions.test_verify_dictionary_input" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="Assignment_1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;word_ladder_unit_tests.test_word_ladder_functions.test_verify_dictionary_input&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in word_ladder_test.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="Assignment_1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/word_ladder_test.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests in word_ladder_test.py" />
         <item itemvalue="Python.word_ladder" />
+        <item itemvalue="Python tests.Unittests for word_ladder_test.test_word_ladder_functions" />
+        <item itemvalue="Python tests.Unittests for word_ladder_test.test_word_ladder_functions.test_verify_dictionary_input" />
+        <item itemvalue="Python tests.Unittests for word_ladder_unit_tests.test_word_ladder_functions.test_verify_dictionary_input" />
       </list>
     </recent_temporary>
   </component>
@@ -70,15 +184,148 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Unittests_in_word_ladder_test_py - 2019.08.25 at 19h 41m 14s.xml">
+      <configuration name="Unittests in word_ladder_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_word_ladder_test_py - 2019.08.25 at 19h 41m 40s.xml">
+      <configuration name="Unittests in word_ladder_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_word_ladder_test_py - 2019.08.25 at 19h 41m 58s.xml">
+      <configuration name="Unittests in word_ladder_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_word_ladder_test_py - 2019.08.25 at 19h 42m 42s.xml">
+      <configuration name="Unittests in word_ladder_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_word_ladder_test_py - 2019.08.25 at 19h 43m 30s.xml">
+      <configuration name="Unittests in word_ladder_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_word_ladder_test_py - 2019.08.25 at 19h 44m 04s.xml">
+      <configuration name="Unittests in word_ladder_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_word_ladder_test_py - 2019.08.25 at 19h 44m 39s.xml">
+      <configuration name="Unittests in word_ladder_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_word_ladder_test_py - 2019.08.25 at 20h 19m 51s.xml">
+      <configuration name="Unittests in word_ladder_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_word_ladder_test_py - 2019.08.25 at 20h 33m 59s.xml">
+      <configuration name="Unittests in word_ladder_test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_word_ladder_test_py - 2019.08.25 at 20h 41m 51s.xml">
+      <configuration name="Unittests in word_ladder_test.py" configurationId="tests" />
+    </history-entry>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-6" y="0" width="882" height="946" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24940899" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.24940899" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Python Console" weight="0.32954547" />
+      <window_info anchor="bottom" id="Terminal" weight="0.32954547" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32954547" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32954547" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="1" weight="0.24940899" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.24940899" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32954547" />
+      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="2" />
+      <window_info anchor="bottom" id="Python Console" order="3" weight="0.32954547" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.32954547" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/word_ladder_unit_tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/word_ladder_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="24" column="94" lean-forward="true" selection-start-line="24" selection-start-column="94" selection-end-line="24" selection-end-column="94" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/word_ladder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3825">
+          <caret line="225" column="82" selection-start-line="225" selection-start-column="82" selection-end-line="225" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
